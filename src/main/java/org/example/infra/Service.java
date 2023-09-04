@@ -13,7 +13,7 @@ public class Service {
 
     public static void ExibirMenu(){
         Scanner scanner = new Scanner(System.in);
-        int escolha;
+        int opcao;
         do {
             System.out.println("\n----- Menu -----");
             System.out.println("1. Listar de contatos");
@@ -24,9 +24,9 @@ public class Service {
             System.out.println("6. Sair");
             System.out.print("Escolha uma opção: ");
 
-            escolha = scanner.nextInt();
+            opcao = scanner.nextInt();
 
-            switch (escolha) {
+            switch (opcao) {
                 case 1:
                     listarContatos();
                     break;
@@ -49,7 +49,7 @@ public class Service {
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }
-        } while (escolha != 6);
+        } while (opcao != 6);
     }
 
     private static void listarContatos() {
@@ -60,20 +60,19 @@ public class Service {
             for (Contato contato : contatos) {
                 System.out.println(contato);
             }
-
         }
     }
 
     private static void adicionarContato() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nome: ");
-        String nome = scanner.next();
+        String nome = scanner.nextLine();
         System.out.print("Sobrenome: ");
-        String sobrenome = scanner.next();
+        String sobrenome = scanner.nextLine();
         System.out.print("Numero: ");
-        String numero = scanner.next();
+        String numero = scanner.nextLine();
         System.out.print("Email: ");
-        String email = scanner.next();
+        String email = scanner.nextLine();
 
         contatos.add(new Contato(nome, sobrenome, numero, email));
         System.out.println("Contato adicionado com sucesso!");
@@ -107,6 +106,7 @@ public class Service {
         for (Contato contato : contatos) {
             if (contato.getNome().equalsIgnoreCase(nomePraEditar)){
                 System.out.print("Novo nome: ");
+                scanner.nextLine();
                 String novoNome = scanner.nextLine();
                 System.out.print("Novo Sobrenome: ");
                 String novoSobrenome = scanner.nextLine();
