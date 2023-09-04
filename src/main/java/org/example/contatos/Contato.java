@@ -6,9 +6,6 @@ public class Contato {
     private String numero;
     private String email;
 
-    public Contato() {
-    }
-
     public Contato(String nome, String sobrenome, String numero, String email) {
         this.nome = nome;
         this.sobrenome = sobrenome;
